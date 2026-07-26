@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+
+# Next.js
+next-env.d.ts
+.next/
+out/
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment
+.env
+.env.*
+
+# AI / Local tools
+.agents/
+.claude/
+.playwright/
+.playwright-cli/
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+bun-debug.log*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary
+tmp/
+temp/
+
+# Coverage
+coverage/
+
+# Если используешь только Bun
+package-lock.json

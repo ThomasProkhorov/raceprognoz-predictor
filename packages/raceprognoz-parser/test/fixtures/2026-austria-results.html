@@ -1,0 +1,706 @@
+
+<!DOCTYPE HTML>
+<html lang="ru-RU" >
+<head>
+<title>Конкурс прогнозов Formula1, IndyCar, WRC, MotoGP</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/bitrix/templates/f1prognoz/components/bitrix/main.pagenavigation/.default/style.css?17800637791267" type="text/css" rel="stylesheet"/>
+<link href="/bitrix/templates/f1prognoz/css/jquery-ui.css?177226741733177" type="text/css" rel="stylesheet" data-template-style="true"/>
+<link href="/bitrix/components/f1prognoz/results.userstat.line/templates/.default/style.css?16767484641089" type="text/css" rel="stylesheet" data-template-style="true"/>
+<link href="/bitrix/templates/f1prognoz/components/bitrix/menu/top/style.css?17712664021680" type="text/css" rel="stylesheet" data-template-style="true"/>
+<link href="/bitrix/templates/f1prognoz/components/bitrix/menu/left/style.css?17687463701197" type="text/css" rel="stylesheet" data-template-style="true"/>
+<link href="/bitrix/templates/f1prognoz/template_styles.css?178008743532354" type="text/css" rel="stylesheet" data-template-style="true"/>
+<script>if(!window.BX)window.BX={};if(!window.BX.message)window.BX.message=function(mess){if(typeof mess==='object'){for(let i in mess) {BX.message[i]=mess[i];} return true;}};</script>
+<script>(window.BX||top.BX).message({"JS_CORE_LOADING":"Загрузка...","JS_CORE_NO_DATA":"- Нет данных -","JS_CORE_WINDOW_CLOSE":"Закрыть","JS_CORE_WINDOW_EXPAND":"Развернуть","JS_CORE_WINDOW_NARROW":"Свернуть в окно","JS_CORE_WINDOW_SAVE":"Сохранить","JS_CORE_WINDOW_CANCEL":"Отменить","JS_CORE_WINDOW_CONTINUE":"Продолжить","JS_CORE_H":"ч","JS_CORE_M":"м","JS_CORE_S":"с","JSADM_AI_HIDE_EXTRA":"Скрыть лишние","JSADM_AI_ALL_NOTIF":"Показать все","JSADM_AUTH_REQ":"Требуется авторизация!","JS_CORE_WINDOW_AUTH":"Войти","JS_CORE_IMAGE_FULL":"Полный размер"});</script>
+
+<script src="/bitrix/js/main/core/core.js?1772267766543783"></script>
+
+<script>BX.Runtime.registerExtension({"name":"main.core","namespace":"BX","loaded":true});</script>
+<script>BX.setJSList(["\/bitrix\/js\/main\/core\/core_ajax.js","\/bitrix\/js\/main\/core\/core_promise.js","\/bitrix\/js\/main\/polyfill\/promise\/js\/promise.js","\/bitrix\/js\/main\/loadext\/loadext.js","\/bitrix\/js\/main\/loadext\/extension.js","\/bitrix\/js\/main\/polyfill\/promise\/js\/promise.js","\/bitrix\/js\/main\/polyfill\/find\/js\/find.js","\/bitrix\/js\/main\/polyfill\/includes\/js\/includes.js","\/bitrix\/js\/main\/polyfill\/matches\/js\/matches.js","\/bitrix\/js\/ui\/polyfill\/closest\/js\/closest.js","\/bitrix\/js\/main\/polyfill\/fill\/main.polyfill.fill.js","\/bitrix\/js\/main\/polyfill\/find\/js\/find.js","\/bitrix\/js\/main\/polyfill\/matches\/js\/matches.js","\/bitrix\/js\/main\/polyfill\/core\/dist\/polyfill.bundle.js","\/bitrix\/js\/main\/core\/core.js","\/bitrix\/js\/main\/polyfill\/intersectionobserver\/js\/intersectionobserver.js","\/bitrix\/js\/main\/lazyload\/dist\/lazyload.bundle.js","\/bitrix\/js\/main\/polyfill\/core\/dist\/polyfill.bundle.js","\/bitrix\/js\/main\/parambag\/dist\/parambag.bundle.js"]);
+</script>
+<script>BX.Runtime.registerExtension({"name":"jquery","namespace":"window","loaded":true});</script>
+<script>(window.BX||top.BX).message({"LANGUAGE_ID":"ru","FORMAT_DATE":"DD.MM.YYYY","FORMAT_DATETIME":"DD.MM.YYYY HH:MI:SS","COOKIE_PREFIX":"BITRIX_SM","SERVER_TZ_OFFSET":"10800","UTF_MODE":"Y","SITE_ID":"ru","SITE_DIR":"\/","USER_ID":"2809","SERVER_TIME":1782842753,"USER_TZ_OFFSET":0,"USER_TZ_AUTO":"Y","bitrix_sessid":"02cf39efb6aecffb84e2a5fa24172788"});</script>
+
+
+<script src="/bitrix/js/twim.recaptchafree/script.js?15478037684421"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadRecaptchafree&render=explicit&hl=ru"></script>
+<script src="/bitrix/js/main/session.js?16422436993701"></script>
+<script src="/bitrix/js/main/jquery/jquery-1.12.4.min.js?165830477297163"></script>
+<script>
+BX.message({"SessExpired": 'Ваш сеанс работы с сайтом завершен из-за отсутствия активности в течение 60 мин. Введенные на странице данные не будут сохранены. Скопируйте их перед тем, как закроете или обновите страницу.'});
+bxSession.Expand('02cf39efb6aecffb84e2a5fa24172788.498e048c2618719f223382fbd767b134bc03ff834a5db1b8407ee2857543bd47');
+</script>
+<script>
+					(function () {
+						"use strict";
+
+						var counter = function ()
+						{
+							var cookie = (function (name) {
+								var parts = ("; " + document.cookie).split("; " + name + "=");
+								if (parts.length == 2) {
+									try {return JSON.parse(decodeURIComponent(parts.pop().split(";").shift()));}
+									catch (e) {}
+								}
+							})("BITRIX_CONVERSION_CONTEXT_ru");
+
+							if (cookie && cookie.EXPIRE >= BX.message("SERVER_TIME"))
+								return;
+
+							var request = new XMLHttpRequest();
+							request.open("POST", "/bitrix/tools/conversion/ajax_counter.php", true);
+							request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+							request.send(
+								"SITE_ID="+encodeURIComponent("ru")+
+								"&sessid="+encodeURIComponent(BX.bitrix_sessid())+
+								"&HTTP_REFERER="+encodeURIComponent(document.referrer)
+							);
+						};
+
+						if (window.frameRequestStart === true)
+							BX.addCustomEvent("onFrameDataReceived", counter);
+						else
+							BX.ready(counter);
+					})();
+				</script>
+
+
+
+<script src="/bitrix/templates/f1prognoz/js/jquery-ui.min.js?1636055146239564"></script>
+<script src="/bitrix/templates/f1prognoz/js/jquery-ui.totop.js?16360547912333"></script>
+<script src="/bitrix/templates/f1prognoz/js/script.js?17712679461286"></script>
+<script src="/bitrix/components/f1prognoz/results.series.stage/templates/.default/script.js?1580282954413"></script>
+
+
+<meta name='yandex-verification' content='43f7f86c1cfbc80e' />
+<meta name="verify-admitad" content="13687de32c" />
+
+<!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter24683300 = new Ya.Metrika({ id:24683300, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/24683300" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+</head>
+
+<BODY>
+
+<div id='container'>   
+    <div class="carbon">
+        <div class="inner">
+            <div class="f1logo">RACEPROGNOZ.RU<div class="spacer h5"></div><span>Конкурс прогнозов Formula1, IndyCar, WRC, MotoGP</span>
+	    </div>
+            <div class="auth">
+                
+<!--'start_frame_cache_97WRCn'--><div class="users_info">
+    <div class="hello fr">Добро пожаловать, Thomas.
+	<div class="h5"></div>
+	<div class='fl'>
+	    <a href="/personal/prize/">Ваши призовые</a>
+	    <div class="h5"></div>
+	    <div class="avail" title="доступно к выводу" alt="доступно к выводу"><span>0 &#8381;</span></div>
+	    <div class="wait" title="ожидает вывода" alt="ожидает вывода"><span>0 &#8381;</span></div>
+	    <div class="h10"></div>
+	    <div><a href="/subscribe/">Изменить подписку на рассылку новостей</a></div>
+	</div>
+    </div>
+    </div>
+<!--'end_frame_cache_97WRCn'-->            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="menu">
+            <div class="menu-main">
+            <div class="top-menu-container">
+    <div class="top-menu-wrap">
+        <ul class="top-menu-ul">
+            <li ><a href="/" class="top-menu-link"><img src="/bitrix/templates/f1prognoz/components/bitrix/menu/top/img/home.png" /></a></li>
+                            <li >
+
+                    <a href="/rules/" class="top-menu-link">
+                        Правила                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/halloffame/" class="top-menu-link">
+                        Зал славы                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/calendar/" class="top-menu-link">
+                        Календарь                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/results/" class="top-menu-link">
+                        Общий зачет                    </a>
+
+                                            <a href="/results/"
+                           class="rez-orange-counter">
+                            38                        </a>
+                    
+                </li>
+                            <li class="current">
+
+                    <a href="/formula1/" class="top-menu-link">
+                        Formula1                    </a>
+
+                                            <a href="/formula1/results/"
+                           class="rez-orange-counter">
+                            4                        </a>
+                    
+                </li>
+                            <li >
+
+                    <a href="/indycar/" class="top-menu-link">
+                        IndyCar                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/wrc/" class="top-menu-link">
+                        WRC                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/motogp/" class="top-menu-link">
+                        MotoGP                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/forum/" class="top-menu-link">
+                        Форум                    </a>
+
+                    
+                </li>
+                        <li><a rel="nofollow" href='/formula1/results/2026/austria.php?logout=yes&pages=page-all'  class="top-menu-link">Выйти</a></li>
+    
+        </ul>
+    </div>
+</div>
+            </div>
+            <div class="menu-left">
+            <div class="second-menu-container">
+    <div class="second-menu-wrap">
+        <ul class="second-menu-ul">
+                            <li >
+                    <a href="/formula1/about/">О чемпионате</a>
+                </li>
+                            <li >
+                    <a href="/formula1/news/">Новости</a>
+                </li>
+                            <li >
+                    <a href="/formula1/calendar/">Календарь</a>
+                </li>
+                            <li class="current">
+                    <a href="/formula1/results/">Результаты</a>
+                </li>
+                            <li >
+                    <a href="/formula1/usersprognozs/">Прогнозы участников</a>
+                </li>
+                            <li >
+                    <a href="/formula1/youresults/">Ваши результаты</a>
+                </li>
+                            <li >
+                    <a href="/formula1/prognoz/">Сделать прогнозы</a>
+                </li>
+                    </ul>
+    </div>
+</div>
+            </div>
+        </div>
+    <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" align='center'>
+        <!-- верхнее contentменю и лого -->
+                <!-- основоное поле -->
+        <tr height='100%'>
+            <td width='100%'>
+                <table width='100%' height='100%' cellspacing='0' cellpadding='0' border='0'>
+                    <tr height='100%'>
+                        <td valign='top' width='100%' style='padding: 10px 30px 10px 30px;'>
+                            <div class="header-bg-photo"></div>
+                            <div class="center"></div>
+                            <div class="spacer h10"></div>			
+                            <div class="content">
+                                                        <div class="breadcrumb"><a href="/" title="Главная">Главная</a>&nbsp;&gt;&nbsp;<a href="/formula1/" title="Раздел Formula1">Раздел Formula1</a>&nbsp;&gt;&nbsp;Результаты</div>                            
+<div class='year-panel'><div class='year-grid'><a class="year-btn active "><span class="y-num">2026</span><span class="y-place">4 место</span></a><a href="/formula1/results/2025/index.php" class="year-btn "><span class="y-num">2025</span></a><a href="/formula1/results/2024/index.php" class="year-btn "><span class="y-num">2024</span><span class="y-place">48 место</span></a><a href="/formula1/results/2023/index.php" class="year-btn "><span class="y-num">2023</span><span class="y-place">43 место</span></a><a href="/formula1/results/2022/index.php" class="year-btn "><span class="y-num">2022</span></a><a href="/formula1/results/2021/index.php" class="year-btn "><span class="y-num">2021</span></a><a href="/formula1/results/2020/index.php" class="year-btn "><span class="y-num">2020</span></a><a href="/formula1/results/2019/index.php" class="year-btn "><span class="y-num">2019</span></a><a href="/formula1/results/2018/index.php" class="year-btn "><span class="y-num">2018</span></a><a href="/formula1/results/2017/index.php" class="year-btn "><span class="y-num">2017</span></a><a href="/formula1/results/2016/index.php" class="year-btn "><span class="y-num">2016</span></a><a href="/formula1/results/2015/index.php" class="year-btn "><span class="y-num">2015</span></a><a href="/formula1/results/2014/index.php" class="year-btn "><span class="y-num">2014</span></a><a href="/formula1/results/2013/index.php" class="year-btn "><span class="y-num">2013</span></a><a href="/formula1/results/2012/index.php" class="year-btn "><span class="y-num">2012</span></a><a href="/formula1/results/2011/index.php" class="year-btn "><span class="y-num">2011</span></a><a href="/formula1/results/2010/index.php" class="year-btn "><span class="y-num">2010</span></a><a href="/formula1/results/2009/index.php" class="year-btn "><span class="y-num">2009</span></a><a href="/formula1/results/2008/index.php" class="year-btn "><span class="y-num">2008</span></a><a href="/formula1/results/2007/index.php" class="year-btn "><span class="y-num">2007</span></a><a href="/formula1/results/2006/index.php" class="year-btn "><span class="y-num">2006</span></a></div></div><div class="stage-panel"><div class="stage-grid"><a href="index.php" class="stage-btn"><span class="s-line1">Общий зачёт</span></a><a href="australia.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Австралии</span><span class="s-place">25 место</span></a><a href="china.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Китая</span><span class="s-place">7 место</span></a><a href="japan.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Японии</span><span class="s-place">39 место</span></a><a href="miami.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Майами</span><span class="s-place">13 место</span></a><a href="canada.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Канады</span><span class="s-place">22 место</span></a><a href="monaco.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Монако</span><span class="s-place">23 место</span></a><a href="catalunya.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Барселоны</span><span class="s-place">13 место</span></a><a class="stage-btn active"><span class="s-line1">Гран При</span><span class="s-line2">Австрии</span><span class="s-place">1 место</span></a></div></div><div class='h20'></div><h2>Результаты участников на Гран При Австрии в разделе Formula1 за 2026 год</h2><table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+    <tr height="25" align="center">
+	<td width="5%" bgcolor="#CEDEEC" class="tableres"><b>№</b></td>
+	<td width="40%" bgcolor="#CEDEEC" class="tableres"><b>Участник</b></td>
+	<td width="40%" bgcolor="#CEDEEC" class="tableres" colspan="2"><b>Очки</b></td>
+	<td width="15%" bgcolor="#CEDEEC" class="tableres"><b>Общий зачет серии</b></td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr_my'>
+	<td width="5%" class="tableres">1</td>
+	<td width="40%" class="tableres">Thomas <br><font color="#999999">#2809 - Thomas</font></td>
+	<td width=15%" class="tableres">123</td>
+	<td width="25%" class="tableres">25 / 15 / 10 / 25 / 8 / 10 / 15 / 15</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">2</td>
+	<td width="40%" class="tableres">Сергей Кот <br><font color="#999999">#2511 - Sergey Kot</font></td>
+	<td width=15%" class="tableres">120</td>
+	<td width="25%" class="tableres">25 / 15 / 10 / 25 / 8 / 10 / 25 / 2</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">3</td>
+	<td width="40%" class="tableres">Евгений <br><font color="#999999">#35 - Jeka_R</font></td>
+	<td width=15%" class="tableres">112</td>
+	<td width="25%" class="tableres">10 / 15 / 6 / 25 / 25 / 6 / 15 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">4</td>
+	<td width="40%" class="tableres">Serpyntyne <br><font color="#999999">#2834 - Serpyntyne</font></td>
+	<td width=15%" class="tableres">108</td>
+	<td width="25%" class="tableres">10 / 10 / 15 / 8 / 25 / 15 / 15 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">5</td>
+	<td width="40%" class="tableres">Agent Orange<br><font color="#999999">#36 - ATAKA</font></td>
+	<td width=15%" class="tableres">108</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 25 / 8 / 15 / 15 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">6</td>
+	<td width="40%" class="tableres">ALEX007 <br><font color="#999999">#2785 - ALEX007</font></td>
+	<td width=15%" class="tableres">105</td>
+	<td width="25%" class="tableres">25 / 15 / 10 / 10 / 8 / 10 / 25 / 2</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">7</td>
+	<td width="40%" class="tableres">kater-777 <br><font color="#999999">#2811 - Аделя</font></td>
+	<td width=15%" class="tableres">104</td>
+	<td width="25%" class="tableres">25 / 15 / 15 / 15 / 10 / 10 / 4 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">8</td>
+	<td width="40%" class="tableres">Руслан Тома<br><font color="#999999">#1213 - Rvs</font></td>
+	<td width=15%" class="tableres">104</td>
+	<td width="25%" class="tableres">10 / 15 / 15 / 8 / 25 / 6 / 15 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">9</td>
+	<td width="40%" class="tableres">Евгений Тюрин<br><font color="#999999">#137 - Zeker</font></td>
+	<td width=15%" class="tableres">103</td>
+	<td width="25%" class="tableres">10 / 15 / 15 / 8 / 15 / 15 / 15 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">10</td>
+	<td width="40%" class="tableres">Владимир Яскович<br><font color="#999999">#1201 - Otto</font></td>
+	<td width=15%" class="tableres">101</td>
+	<td width="25%" class="tableres">10 / 15 / 15 / 8 / 25 / 10 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">11</td>
+	<td width="40%" class="tableres">Aleksei Snetkov <br><font color="#999999">#2825 - kubica</font></td>
+	<td width=15%" class="tableres">101</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 25 / 10 / 6 / 15 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">12</td>
+	<td width="40%" class="tableres">Вадим Кондратьев<br><font color="#999999">#1746 - vek.exe</font></td>
+	<td width=15%" class="tableres">100</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 10 / 15 / 15 / 15 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">13</td>
+	<td width="40%" class="tableres">Konstantin Kulikov<br><font color="#999999">#1280 - kostik707</font></td>
+	<td width=15%" class="tableres">99</td>
+	<td width="25%" class="tableres">10 / 25 / 10 / 15 / 10 / 10 / 15 / 4</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">14</td>
+	<td width="40%" class="tableres">КаСаб <br><font color="#999999">#2831 - Kasab</font></td>
+	<td width=15%" class="tableres">97</td>
+	<td width="25%" class="tableres">25 / 15 / 15 / 6 / 10 / 6 / 10 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">15</td>
+	<td width="40%" class="tableres">сергей катернюк<br><font color="#999999">#1732 - kater-99</font></td>
+	<td width=15%" class="tableres">97</td>
+	<td width="25%" class="tableres">25 / 15 / 10 / 6 / 8 / 15 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">16</td>
+	<td width="40%" class="tableres">верта <br><font color="#999999">#2795 - galy</font></td>
+	<td width=15%" class="tableres">96</td>
+	<td width="25%" class="tableres">6 / 15 / 15 / 10 / 10 / 15 / 15 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">17</td>
+	<td width="40%" class="tableres">ALEX888 <br><font color="#999999">#2788 - ALEX888</font></td>
+	<td width=15%" class="tableres">94</td>
+	<td width="25%" class="tableres">25 / 15 / 4 / 15 / 8 / 15 / 8 / 4</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">18</td>
+	<td width="40%" class="tableres">юрий ларионов<br><font color="#999999">#495 - ajt08</font></td>
+	<td width=15%" class="tableres">93</td>
+	<td width="25%" class="tableres">25 / 15 / 6 / 15 / 8 / 6 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">19</td>
+	<td width="40%" class="tableres">ALEX777 <br><font color="#999999">#2787 - ALEX777</font></td>
+	<td width=15%" class="tableres">92</td>
+	<td width="25%" class="tableres">25 / 15 / 4 / 15 / 8 / 15 / 8 / 2</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">20</td>
+	<td width="40%" class="tableres">Сергей Ремез<br><font color="#999999">#1934 - rsa116</font></td>
+	<td width=15%" class="tableres">92</td>
+	<td width="25%" class="tableres">15 / 15 / 10 / 10 / 6 / 15 / 15 / 6</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">21</td>
+	<td width="40%" class="tableres">Анатолий Зайчёнок<br><font color="#999999">#1 - zaychenok</font></td>
+	<td width=15%" class="tableres">86</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 10 / 8 / 15 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">22</td>
+	<td width="40%" class="tableres">Денис Ноздрин<br><font color="#999999">#173 - Ronaldo</font></td>
+	<td width=15%" class="tableres">86</td>
+	<td width="25%" class="tableres">10 / 4 / 15 / 8 / 25 / 10 / 4 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">23</td>
+	<td width="40%" class="tableres">Andrew .<br><font color="#999999">#69 - ЗЗ ( Toleman )</font></td>
+	<td width=15%" class="tableres">85</td>
+	<td width="25%" class="tableres">10 / 4 / 10 / 15 / 15 / 6 / 15 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">24</td>
+	<td width="40%" class="tableres">Сергей Варламов<br><font color="#999999">#1758 - V89</font></td>
+	<td width=15%" class="tableres">84</td>
+	<td width="25%" class="tableres">10 / 8 / 15 / 6 / 6 / 10 / 25 / 4</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">25</td>
+	<td width="40%" class="tableres">Барабулька <br><font color="#999999">#2507 - Kokody</font></td>
+	<td width=15%" class="tableres">83</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 10 / 10 / 10 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">26</td>
+	<td width="40%" class="tableres">Андрей Лычагин<br><font color="#999999">#1415 - Andrey1985</font></td>
+	<td width=15%" class="tableres">82</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 6 / 8 / 15 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">27</td>
+	<td width="40%" class="tableres">Сергей Ракусевич<br><font color="#999999">#1547 - Kniker</font></td>
+	<td width=15%" class="tableres">82</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 6 / 8 / 15 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">28</td>
+	<td width="40%" class="tableres">Рауль Гаделия<br><font color="#999999">#198 - Fanmaster</font></td>
+	<td width=15%" class="tableres">82</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 6 / 8 / 15 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">29</td>
+	<td width="40%" class="tableres">юрий ларионов<br><font color="#999999">#1214 - ajt</font></td>
+	<td width=15%" class="tableres">82</td>
+	<td width="25%" class="tableres">10 / 15 / 6 / 15 / 8 / 10 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">30</td>
+	<td width="40%" class="tableres">ALEX007RF <br><font color="#999999">#2802 - ALEX007RF</font></td>
+	<td width=15%" class="tableres">79</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 6 / 15 / 15 / 4 / 4</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">31</td>
+	<td width="40%" class="tableres">Boris Navolokin<br><font color="#999999">#1926 - Strannik1</font></td>
+	<td width=15%" class="tableres">79</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 8 / 8 / 10 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">32</td>
+	<td width="40%" class="tableres">Alexandr Kondratenkov<br><font color="#999999">#1205 - ElCoronel</font></td>
+	<td width=15%" class="tableres">79</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 8 / 8 / 10 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">33</td>
+	<td width="40%" class="tableres">Ольга Ертышова<br><font color="#999999">#492 - Олененок</font></td>
+	<td width=15%" class="tableres">78</td>
+	<td width="25%" class="tableres">10 / 4 / 10 / 25 / 8 / 15 / 4 / 2</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">34</td>
+	<td width="40%" class="tableres">Павел Швалов<br><font color="#999999">#54 - ExtraDrive</font></td>
+	<td width=15%" class="tableres">77</td>
+	<td width="25%" class="tableres">2 / 15 / 15 / 8 / 8 / 6 / 15 / 8</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">35</td>
+	<td width="40%" class="tableres">Роман Гвоздевский<br><font color="#999999">#1193 - xr7</font></td>
+	<td width=15%" class="tableres">75</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 6 / 10 / 6 / 8 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">36</td>
+	<td width="40%" class="tableres">ALEX555 <br><font color="#999999">#2786 - ALEX555</font></td>
+	<td width=15%" class="tableres">70</td>
+	<td width="25%" class="tableres">10 / 15 / 4 / 15 / 10 / 6 / 8 / 2</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">37</td>
+	<td width="40%" class="tableres">ALEX007RUS <br><font color="#999999">#2784 - ALEX007RUS</font></td>
+	<td width=15%" class="tableres">69</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 6 / 10 / 6 / 8 / 4</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">38</td>
+	<td width="40%" class="tableres">Татьяна Катернюк<br><font color="#999999">#1904 - kater-999</font></td>
+	<td width=15%" class="tableres">67</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 8 / 8 / 10 / 4 / 2</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">39</td>
+	<td width="40%" class="tableres">BSA-1953 <br><font color="#999999">#2818 - BSA-1953</font></td>
+	<td width=15%" class="tableres">66</td>
+	<td width="25%" class="tableres">10 / 15 / 10 / 6 / 10 / 6 / 8 / 1</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">40</td>
+	<td width="40%" class="tableres">Serrg Che<br><font color="#999999">#2129 - Rock F1</font></td>
+	<td width=15%" class="tableres">64</td>
+	<td width="25%" class="tableres">10 / 4 / 10 / 8 / 8 / 10 / 4 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">41</td>
+	<td width="40%" class="tableres">Наташа <br><font color="#999999">#2820 - nosachevim3</font></td>
+	<td width=15%" class="tableres">56</td>
+	<td width="25%" class="tableres">6 / 4 / 4 / 10 / 6 / 10 / 6 / 10</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+    
+    <tr height='25' align='center' class='rez_tr'>
+	<td width="5%" class="tableres">42</td>
+	<td width="40%" class="tableres">p.polina.r <br><font color="#999999">#2830 - p.polina.r</font></td>
+	<td width=15%" class="tableres">50</td>
+	<td width="25%" class="tableres">10 / 8 / 6 / 6 / 6 / 6 / 2 / 6</td>
+	<td width='15%' class='tableres'>-</td>
+    </tr>
+    
+   
+		
+    <tr height="25" align="center">
+	<td width="5%" bgcolor="#CEDEEC" class="tableres"><b>№</b></td>
+	<td width="40%" bgcolor="#CEDEEC" class="tableres"><b>Участник</b></td>
+	<td width="40%" bgcolor="#CEDEEC" class="tableres" colspan="2"><b>Очки</b></td>
+	<td width="15%" bgcolor="#CEDEEC" class="tableres"><b>Общий зачет серии</b></td>
+    </tr>
+</table>
+<br />
+    
+
+<div class="rp-pager" id="rpPager">
+            <span class="rp-pg rp-disabled" aria-label="Предыдущая страница">← Назад</span>
+        <span class="rp-pg rp-current" aria-label="Страница 1" aria-current="page">1</span>
+    
+    
+    
+                    <span class="rp-pg rp-disabled" aria-label="Следующая страница">Вперёд →</span>
+    
+            <a class="rp-pg" href="/formula1/results/2026/austria.php" aria-label="Показать по страницам">Страницы</a>
+    </div>
+
+                            </div>		
+                            <div class="spacer h20"></div>
+
+    <div style="text-align: center; width: 100%;" class="all_bottom">
+        </div>
+
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>    
+    </div>
+    <div id="footer_guard"></div>
+</div>    
+
+<div class="footer_wrap">
+    <div class="footer">
+	<div class="ft_nav">
+	    <ul>
+		<li><a href="/history/">История создания</a></li>
+	    </ul>
+	</div>
+	<div class="ft_nav">
+	    <ul>
+                <li><a href="/rules/#7">Призы</a></li>
+	    </ul>
+	</div>	
+	<div class="ft_nav">
+	    <ul>
+                <li><a href="/users/">Участники</a></li>
+	    </ul>
+	</div>	
+	<div class="ft_nav">
+	    <ul>
+                <li><a href="/bets/">Пари</a></li>
+	    </ul>
+	</div>	        
+	<div class="ft_nav">
+	    <ul>
+		<li><a href="/reklama/">Реклама на сайте</a></li>
+	    </ul>
+	</div>
+	<div class="ft_nav">
+	    <ul>
+                <li><a href='mailto:konkurs@f1prognoz.ru?subject="[f1prognoz.ru] "'>Контакты</a></li>
+	    </ul>
+	</div>
+	<div class="ft_nav">
+	    <ul>
+		<li><a href="/dtm/">DTM (архив)</a></li>
+	    </ul>
+	</div>
+        
+
+	<div class="ft_nav"></div>
+	<div class="clearboth h15"></div>
+	<div class="ft_copy">&COPY; 2004&ndash;2026 Зайченок Анатолий.</div>
+	<div class="ft_copy">Сайт работает на &laquo;<a href='http://www.1c-bitrix.ru' target='_blank'>1C-Битрикс: Управление сайтом</a>&raquo; <span id="bx-composite-banner"></span></div>
+	<div class="ft_developer">Сделано в <a class="logo-leveret" href="http://www.leveret.ru">leveret.ru</a></div>
+    </div>
+</div>
+</BODY>
+</HTML>

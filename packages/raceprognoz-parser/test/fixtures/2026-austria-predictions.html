@@ -1,0 +1,943 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU" >
+<head>
+<title>Конкурс прогнозов Formula1, IndyCar, WRC, MotoGP</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/bitrix/templates/f1prognoz/css/jquery-ui.css?177226741733177" type="text/css" rel="stylesheet" data-template-style="true"/>
+<link href="/bitrix/templates/f1prognoz/components/bitrix/menu/top/style.css?17712664021680" type="text/css" rel="stylesheet" data-template-style="true"/>
+<link href="/bitrix/templates/f1prognoz/components/bitrix/menu/left/style.css?17687463701197" type="text/css" rel="stylesheet" data-template-style="true"/>
+<link href="/bitrix/templates/f1prognoz/template_styles.css?178008743532354" type="text/css" rel="stylesheet" data-template-style="true"/>
+<script>if(!window.BX)window.BX={};if(!window.BX.message)window.BX.message=function(mess){if(typeof mess==='object'){for(let i in mess) {BX.message[i]=mess[i];} return true;}};</script>
+<script>(window.BX||top.BX).message({"JS_CORE_LOADING":"Загрузка...","JS_CORE_NO_DATA":"- Нет данных -","JS_CORE_WINDOW_CLOSE":"Закрыть","JS_CORE_WINDOW_EXPAND":"Развернуть","JS_CORE_WINDOW_NARROW":"Свернуть в окно","JS_CORE_WINDOW_SAVE":"Сохранить","JS_CORE_WINDOW_CANCEL":"Отменить","JS_CORE_WINDOW_CONTINUE":"Продолжить","JS_CORE_H":"ч","JS_CORE_M":"м","JS_CORE_S":"с","JSADM_AI_HIDE_EXTRA":"Скрыть лишние","JSADM_AI_ALL_NOTIF":"Показать все","JSADM_AUTH_REQ":"Требуется авторизация!","JS_CORE_WINDOW_AUTH":"Войти","JS_CORE_IMAGE_FULL":"Полный размер"});</script>
+
+<script src="/bitrix/js/main/core/core.js?1772267766543783"></script>
+
+<script>BX.Runtime.registerExtension({"name":"main.core","namespace":"BX","loaded":true});</script>
+<script>BX.setJSList(["\/bitrix\/js\/main\/core\/core_ajax.js","\/bitrix\/js\/main\/core\/core_promise.js","\/bitrix\/js\/main\/polyfill\/promise\/js\/promise.js","\/bitrix\/js\/main\/loadext\/loadext.js","\/bitrix\/js\/main\/loadext\/extension.js","\/bitrix\/js\/main\/polyfill\/promise\/js\/promise.js","\/bitrix\/js\/main\/polyfill\/find\/js\/find.js","\/bitrix\/js\/main\/polyfill\/includes\/js\/includes.js","\/bitrix\/js\/main\/polyfill\/matches\/js\/matches.js","\/bitrix\/js\/ui\/polyfill\/closest\/js\/closest.js","\/bitrix\/js\/main\/polyfill\/fill\/main.polyfill.fill.js","\/bitrix\/js\/main\/polyfill\/find\/js\/find.js","\/bitrix\/js\/main\/polyfill\/matches\/js\/matches.js","\/bitrix\/js\/main\/polyfill\/core\/dist\/polyfill.bundle.js","\/bitrix\/js\/main\/core\/core.js","\/bitrix\/js\/main\/polyfill\/intersectionobserver\/js\/intersectionobserver.js","\/bitrix\/js\/main\/lazyload\/dist\/lazyload.bundle.js","\/bitrix\/js\/main\/polyfill\/core\/dist\/polyfill.bundle.js","\/bitrix\/js\/main\/parambag\/dist\/parambag.bundle.js"]);
+</script>
+<script>BX.Runtime.registerExtension({"name":"jquery","namespace":"window","loaded":true});</script>
+<script>(window.BX||top.BX).message({"LANGUAGE_ID":"ru","FORMAT_DATE":"DD.MM.YYYY","FORMAT_DATETIME":"DD.MM.YYYY HH:MI:SS","COOKIE_PREFIX":"BITRIX_SM","SERVER_TZ_OFFSET":"10800","UTF_MODE":"Y","SITE_ID":"ru","SITE_DIR":"\/","USER_ID":"","SERVER_TIME":1782700056,"USER_TZ_OFFSET":0,"USER_TZ_AUTO":"Y","bitrix_sessid":"a6f98b6b9a95a379276b6dcf3e0005f3"});</script>
+
+
+<script src="/bitrix/js/twim.recaptchafree/script.js?15478037684421"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadRecaptchafree&render=explicit&hl=ru"></script>
+<script src="/bitrix/js/main/jquery/jquery-1.12.4.min.js?165830477297163"></script>
+<script>
+					(function () {
+						"use strict";
+
+						var counter = function ()
+						{
+							var cookie = (function (name) {
+								var parts = ("; " + document.cookie).split("; " + name + "=");
+								if (parts.length == 2) {
+									try {return JSON.parse(decodeURIComponent(parts.pop().split(";").shift()));}
+									catch (e) {}
+								}
+							})("BITRIX_CONVERSION_CONTEXT_ru");
+
+							if (cookie && cookie.EXPIRE >= BX.message("SERVER_TIME"))
+								return;
+
+							var request = new XMLHttpRequest();
+							request.open("POST", "/bitrix/tools/conversion/ajax_counter.php", true);
+							request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+							request.send(
+								"SITE_ID="+encodeURIComponent("ru")+
+								"&sessid="+encodeURIComponent(BX.bitrix_sessid())+
+								"&HTTP_REFERER="+encodeURIComponent(document.referrer)
+							);
+						};
+
+						if (window.frameRequestStart === true)
+							BX.addCustomEvent("onFrameDataReceived", counter);
+						else
+							BX.ready(counter);
+					})();
+				</script>
+
+
+
+<script src="/bitrix/templates/f1prognoz/js/jquery-ui.min.js?1636055146239564"></script>
+<script src="/bitrix/templates/f1prognoz/js/jquery-ui.totop.js?16360547912333"></script>
+<script src="/bitrix/templates/f1prognoz/js/script.js?17712679461286"></script>
+
+
+<meta name='yandex-verification' content='43f7f86c1cfbc80e' />
+<meta name="verify-admitad" content="13687de32c" />
+
+<!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter24683300 = new Ya.Metrika({ id:24683300, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/24683300" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+</head>
+
+<BODY>
+
+<div id='container'>   
+    <div class="carbon">
+        <div class="inner">
+            <div class="f1logo">RACEPROGNOZ.RU<div class="spacer h5"></div><span>Конкурс прогнозов Formula1, IndyCar, WRC, MotoGP</span>
+	    </div>
+            <div class="auth">
+                    <div class="authform fr">
+        <form id="auth_form" method="POST" action="/auth/index.php?login=yes">
+                            <input type='hidden' name='backurl' value='/formula1/usersprognozs/2026/austria.php'/>
+                                        <input type="hidden" name="AUTH_FORM" value="Y"/>
+            <input type="hidden" name="TYPE" value="AUTH"/>
+
+            <div class="fl af_form">
+                <div class="fr">
+                    <a href="/auth/index.php?login=yes" class="btn btn-biz shadow submit">ВОЙТИ</a>
+                </div>
+                <div class="fr inputs">
+                    <input type="text" name="USER_LOGIN" maxlength="50" value="" class="txt"/>
+                    <div class="spacer"></div>
+                    <input type="password" name="USER_PASSWORD" maxlength="50" class="txt txt2"/>
+                    <div class="spacer"></div>
+                    <a href="/auth/">Забыли пароль?</a>
+                </div>
+                <div class="fr">
+                    <div class="text_login">Логин:</div>
+                    <div class="text_pass">Пароль:</div>
+                </div>
+            </div>
+            <div class="fl af_else">ИЛИ</div>
+            <div class="fl af_reg"><a href="/registration/" class="btn btn-con shadow">Стать участником</a></div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        var $j = jQuery.noConflict();
+        $j(document).ready(function () {
+            $j('a.submit').click(function () {
+                $j('#auth_form').submit();
+                return false;
+            });
+            $j('#auth_form').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    $j('#auth_form').submit();
+                }
+            });
+        });
+    </script>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="menu">
+            <div class="menu-main">
+            <div class="top-menu-container">
+    <div class="top-menu-wrap">
+        <ul class="top-menu-ul">
+            <li ><a href="/" class="top-menu-link"><img src="/bitrix/templates/f1prognoz/components/bitrix/menu/top/img/home.png" /></a></li>
+                            <li >
+
+                    <a href="/rules/" class="top-menu-link">
+                        Правила                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/halloffame/" class="top-menu-link">
+                        Зал славы                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/calendar/" class="top-menu-link">
+                        Календарь                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/results/" class="top-menu-link">
+                        Общий зачет                    </a>
+
+                    
+                </li>
+                            <li class="current">
+
+                    <a href="/formula1/" class="top-menu-link">
+                        Formula1                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/indycar/" class="top-menu-link">
+                        IndyCar                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/wrc/" class="top-menu-link">
+                        WRC                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/motogp/" class="top-menu-link">
+                        MotoGP                    </a>
+
+                    
+                </li>
+                            <li >
+
+                    <a href="/forum/" class="top-menu-link">
+                        Форум                    </a>
+
+                    
+                </li>
+                    
+        </ul>
+    </div>
+</div>
+            </div>
+            <div class="menu-left">
+            <div class="second-menu-container">
+    <div class="second-menu-wrap">
+        <ul class="second-menu-ul">
+                            <li >
+                    <a href="/formula1/about/">О чемпионате</a>
+                </li>
+                            <li >
+                    <a href="/formula1/news/">Новости</a>
+                </li>
+                            <li >
+                    <a href="/formula1/calendar/">Календарь</a>
+                </li>
+                            <li >
+                    <a href="/formula1/results/">Результаты</a>
+                </li>
+                            <li class="current">
+                    <a href="/formula1/usersprognozs/">Прогнозы участников</a>
+                </li>
+                    </ul>
+    </div>
+</div>
+            </div>
+        </div>
+    <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" align='center'>
+        <!-- верхнее contentменю и лого -->
+                <!-- основоное поле -->
+        <tr height='100%'>
+            <td width='100%'>
+                <table width='100%' height='100%' cellspacing='0' cellpadding='0' border='0'>
+                    <tr height='100%'>
+                        <td valign='top' width='100%' style='padding: 10px 30px 10px 30px;'>
+                            <div class="header-bg-photo"></div>
+                            <div class="center"></div>
+                            <div class="spacer h10"></div>			
+                            <div class="content">
+                                                        <div class="breadcrumb"><a href="/" title="Главная">Главная</a>&nbsp;&gt;&nbsp;<a href="/formula1/" title="Раздел Formula1">Раздел Formula1</a>&nbsp;&gt;&nbsp;Прогнозы участников</div>                            
+
+
+<div class='year-panel'><div class='year-grid'><a class="year-btn active no-place"><span class="y-num">2026</span></a><a href="/formula1/usersprognozs/2025/index.php" class="year-btn no-place"><span class="y-num">2025</span></a><a href="/formula1/usersprognozs/2024/index.php" class="year-btn no-place"><span class="y-num">2024</span></a><a href="/formula1/usersprognozs/2023/index.php" class="year-btn no-place"><span class="y-num">2023</span></a><a href="/formula1/usersprognozs/2022/index.php" class="year-btn no-place"><span class="y-num">2022</span></a><a href="/formula1/usersprognozs/2021/index.php" class="year-btn no-place"><span class="y-num">2021</span></a><a href="/formula1/usersprognozs/2020/index.php" class="year-btn no-place"><span class="y-num">2020</span></a><a href="/formula1/usersprognozs/2019/index.php" class="year-btn no-place"><span class="y-num">2019</span></a><a href="/formula1/usersprognozs/2018/index.php" class="year-btn no-place"><span class="y-num">2018</span></a><a href="/formula1/usersprognozs/2017/index.php" class="year-btn no-place"><span class="y-num">2017</span></a><a href="/formula1/usersprognozs/2016/index.php" class="year-btn no-place"><span class="y-num">2016</span></a><a href="/formula1/usersprognozs/2015/index.php" class="year-btn no-place"><span class="y-num">2015</span></a><a href="/formula1/usersprognozs/2014/index.php" class="year-btn no-place"><span class="y-num">2014</span></a><a href="/formula1/usersprognozs/2013/index.php" class="year-btn no-place"><span class="y-num">2013</span></a><a href="/formula1/usersprognozs/2012/index.php" class="year-btn no-place"><span class="y-num">2012</span></a><a href="/formula1/usersprognozs/2011/index.php" class="year-btn no-place"><span class="y-num">2011</span></a><a href="/formula1/usersprognozs/2010/index.php" class="year-btn no-place"><span class="y-num">2010</span></a><a href="/formula1/usersprognozs/2009/index.php" class="year-btn no-place"><span class="y-num">2009</span></a><a href="/formula1/usersprognozs/2008/index.php" class="year-btn no-place"><span class="y-num">2008</span></a><a href="/formula1/usersprognozs/2007/index.php" class="year-btn no-place"><span class="y-num">2007</span></a><a href="/formula1/usersprognozs/2006/index.php" class="year-btn no-place"><span class="y-num">2006</span></a></div></div><div class="stage-panel"><div class="stage-grid"><a href="australia.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Австралии</span></a><a href="china.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Китая</span></a><a href="japan.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Японии</span></a><a href="miami.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Майами</span></a><a href="canada.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Канады</span></a><a href="monaco.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Монако</span></a><a href="catalunya.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Барселоны</span></a><a class="stage-btn active"><span class="s-line1">Гран При</span><span class="s-line2">Австрии</span></a><a href="britain.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Великобритании</span></a><a href="belgium.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Бельгии</span></a><a href="hungary.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Венгрии</span></a><a href="netherland.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Нидерландов</span></a><a href="italy.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Италии</span></a><a href="spain.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Испании</span></a><a href="azerbaijan.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Азербайджана</span></a><a href="singapore.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Сингапура</span></a><a href="usa.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">США</span></a><a href="mexico.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Мексики</span></a><a href="san-paulo.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Сан Пауло</span></a><a href="las-vegas.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Лас Вегаса</span></a><a href="qatar.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Катара</span></a><a href="abu-dabi.php" class="stage-btn"><span class="s-line1">Гран При</span><span class="s-line2">Абу Даби</span></a></div></div>
+<div class="spacer h20"></div>
+
+
+<div id='result'>
+    <h2>Прогнозы участников на Гран При Австрии 2026 года</h2>
+    <div>Этап проходил с 26 по 28 июня, прием прогнозов закончился 27 июня в 17:00 по московскому времени.</div>
+
+        <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>ALEX555 , #2786</b><br /><font color='#999999'>05.06.2026 12:21:54</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Oliver Bearman</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>ALEX007 , #2785</b><br /><font color='#999999'>05.06.2026 12:30:17</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Oliver Bearman</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>ALEX777 , #2787</b><br /><font color='#999999'>05.06.2026 12:37:57</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Oliver Bearman</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>ALEX007RF , #2802</b><br /><font color='#999999'>05.06.2026 12:47:55</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Pierre Gasly</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>ALEX888 , #2788</b><br /><font color='#999999'>05.06.2026 12:51:33</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Pierre Gasly</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>ALEX007RUS , #2784</b><br /><font color='#999999'>05.06.2026 12:59:08</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Pierre Gasly</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>BSA-1953 , #2818</b><br /><font color='#999999'>05.06.2026 13:02:53</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Franco Colapinto</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Анатолий Зайчёнок, #1</b><br /><font color='#999999'>14.06.2026 23:33:04</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Евгений Тюрин, #137</b><br /><font color='#999999'>17.06.2026 16:02:59</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>КаСаб , #2831</b><br /><font color='#999999'>22.06.2026 08:34:17</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Андрей Лычагин, #1415</b><br /><font color='#999999'>22.06.2026 17:02:49</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Ольга Ертышова, #492</b><br /><font color='#999999'>23.06.2026 09:48:47</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Oliver Bearman</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Павел Швалов, #54</b><br /><font color='#999999'>23.06.2026 17:57:56</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Arvid Lindblad</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Isack Hadjar</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Lewis Hamilton</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Сергей Ракусевич, #1547</b><br /><font color='#999999'>24.06.2026 12:24:36</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Serrg Che, #2129</b><br /><font color='#999999'>24.06.2026 13:43:32</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Наташа , #2820</b><br /><font color='#999999'>25.06.2026 08:27:21</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Рауль Гаделия, #198</b><br /><font color='#999999'>25.06.2026 08:30:03</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Сергей Ремез, #1934</b><br /><font color='#999999'>25.06.2026 19:39:40</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Isack Hadjar</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Oscar Piastri</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>юрий ларионов, #1214</b><br /><font color='#999999'>26.06.2026 09:45:32</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>юрий ларионов, #495</b><br /><font color='#999999'>26.06.2026 09:50:16</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Роман Гвоздевский, #1193</b><br /><font color='#999999'>26.06.2026 16:40:15</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Денис Ноздрин, #173</b><br /><font color='#999999'>26.06.2026 20:08:09</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>kater-777 , #2811</b><br /><font color='#999999'>26.06.2026 21:38:11</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>верта , #2795</b><br /><font color='#999999'>26.06.2026 21:39:53</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>сергей катернюк, #1732</b><br /><font color='#999999'>26.06.2026 21:42:35</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Татьяна Катернюк, #1904</b><br /><font color='#999999'>26.06.2026 21:45:07</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Oliver Bearman</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Сергей Кот , #2511</b><br /><font color='#999999'>26.06.2026 21:46:11</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Oliver Bearman</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Konstantin Kulikov, #1280</b><br /><font color='#999999'>26.06.2026 22:33:23</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Isack Hadjar</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Pierre Gasly</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Serpyntyne , #2834</b><br /><font color='#999999'>26.06.2026 22:34:30</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Руслан Тома, #1213</b><br /><font color='#999999'>27.06.2026 00:02:46</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>p.polina.r , #2830</b><br /><font color='#999999'>27.06.2026 09:07:09</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Pierre Gasly</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Oscar Piastri</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Сергей Варламов, #1758</b><br /><font color='#999999'>27.06.2026 13:59:32</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Pierre Gasly</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Владимир Яскович, #1201</b><br /><font color='#999999'>27.06.2026 14:07:43</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Boris Navolokin, #1926</b><br /><font color='#999999'>27.06.2026 14:32:13</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Барабулька , #2507</b><br /><font color='#999999'>27.06.2026 14:33:12</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Aleksei Snetkov , #2825</b><br /><font color='#999999'>27.06.2026 14:33:16</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Евгений , #35</b><br /><font color='#999999'>27.06.2026 14:55:00</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Вадим Кондратьев, #1746</b><br /><font color='#999999'>27.06.2026 15:50:07</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Agent Orange, #36</b><br /><font color='#999999'>27.06.2026 16:25:25</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Alexandr Kondratenkov, #1205</b><br /><font color='#999999'>27.06.2026 16:45:04</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Arvid Lindblad</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Thomas , #2809</b><br /><font color='#999999'>27.06.2026 16:48:27</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Isack Hadjar</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Liam Lawson</td></tr>
+        </table>
+    </div>
+    <div style="float:left; padding-right: 10px; padding-top: 20px; width: 30%;">
+        <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#99BAD7" border="0">
+            <tr align="center">
+                <td colspan="2" bgcolor=#CEDEEC class=tableres><b>Andrew ., #69</b><br /><font color='#999999'>27.06.2026 16:59:16</font></td>
+            </tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">1</td><td class="tableres">Kimi Antonelli</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">2</td><td class="tableres">Lando Norris</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">3</td><td class="tableres">George Russell</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">4</td><td class="tableres">Lewis Hamilton</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">5</td><td class="tableres">Oscar Piastri</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">6</td><td class="tableres">Max Verstappen</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">7</td><td class="tableres">Charles Leclerc</td></tr>
+            <tr height="25" bgcolor="#F7F5F5" align="center"><td class="tableres">8</td><td class="tableres">Isack Hadjar</td></tr>
+        </table>
+    </div>
+</div>
+
+                            </div>		
+                            <div class="spacer h20"></div>
+
+    <div style="text-align: center; width: 100%;" class="all_bottom">
+        </div>
+
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>    
+    </div>
+    <div id="footer_guard"></div>
+</div>    
+
+<div class="footer_wrap">
+    <div class="footer">
+	<div class="ft_nav">
+	    <ul>
+		<li><a href="/history/">История создания</a></li>
+	    </ul>
+	</div>
+	<div class="ft_nav">
+	    <ul>
+                <li><a href="/rules/#7">Призы</a></li>
+	    </ul>
+	</div>	
+	<div class="ft_nav">
+	    <ul>
+                <li><a href="/users/">Участники</a></li>
+	    </ul>
+	</div>	
+	<div class="ft_nav">
+	    <ul>
+                <li><a href="/bets/">Пари</a></li>
+	    </ul>
+	</div>	        
+	<div class="ft_nav">
+	    <ul>
+		<li><a href="/reklama/">Реклама на сайте</a></li>
+	    </ul>
+	</div>
+	<div class="ft_nav">
+	    <ul>
+                <li><a href='mailto:konkurs@f1prognoz.ru?subject="[f1prognoz.ru] "'>Контакты</a></li>
+	    </ul>
+	</div>
+	<div class="ft_nav">
+	    <ul>
+		<li><a href="/dtm/">DTM (архив)</a></li>
+	    </ul>
+	</div>
+        
+
+	<div class="ft_nav"></div>
+	<div class="clearboth h15"></div>
+	<div class="ft_copy">&COPY; 2004&ndash;2026 Зайченок Анатолий.</div>
+	<div class="ft_copy">Сайт работает на &laquo;<a href='http://www.1c-bitrix.ru' target='_blank'>1C-Битрикс: Управление сайтом</a>&raquo; <span id="bx-composite-banner"></span></div>
+	<div class="ft_developer">Сделано в <a class="logo-leveret" href="http://www.leveret.ru">leveret.ru</a></div>
+    </div>
+</div>
+</BODY>
+</HTML>

@@ -26,7 +26,7 @@ export default async function PredictionsPage() {
   } catch {}
 
   try {
-    const url = "https://raceprognoz.ru/formula1/usersprognozs/2026/belgium.php";
+    const url = "https://raceprognoz.ru/formula1/usersprognozs/2026/index.php";
     predictions = await getPredictions(url);
     //console.dir(url)
   } catch (e) {

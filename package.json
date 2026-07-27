@@ -8,6 +8,6 @@
   ],
   "scripts": {
     "build": "bun run --filter raceprognoz-parser build && bun run --filter raceprognoz-web build",
-    "postinstall": "cd apps/raceprognoz-web && playwright install chromium"
+    "postinstall": "cd apps/raceprognoz-web && bunx playwright install chromium"
   }
 }

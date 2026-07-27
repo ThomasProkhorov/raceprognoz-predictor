@@ -10,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getDrivers, getLiveHtml, initLiveParser } from "@/lib/parsers/live-parser";
+//import { getDrivers, getLiveHtml, initLiveParser } from "@/lib/parsers/live-parser";
 
 const SESSION_LABELS: Record<string, string> = {
   race: "Race",
@@ -53,24 +53,24 @@ export default async function LivePage() {
 
     if (ongoingType) {
       try {
-        await initLiveParser(
-          "https://ocblacktop.com/events/093e56b6-70b0-49ae-be1d-fe7c92b9afd8"
-        );
+        // await initLiveParser(
+        //   "https://ocblacktop.com/events/093e56b6-70b0-49ae-be1d-fe7c92b9afd8"
+        // );
 
         
-        //setInterval(async () => {
-          const drivers = await getDrivers();
+        // //setInterval(async () => {
+        //   const drivers = await getDrivers();
 
-          console.log('drivers:', drivers );
+        //   console.log('drivers:', drivers );
 
-          results = drivers.map((r) => ({
-            position: r.position,
-            driverCode: r.driverCode,
-            driverName: r.driverName,
-            team: r.team,
-            time: r.time,
-            points: r.points,
-          }));
+        //   results = drivers.map((r) => ({
+        //     position: r.position,
+        //     driverCode: r.driverCode,
+        //     driverName: r.driverName,
+        //     team: r.team,
+        //     time: r.time,
+        //     points: r.points,
+        //   }));
           sessionType = ongoingType;
           // тут твой parseRscPayload или Cheerio
           // const data = parseLive(html);

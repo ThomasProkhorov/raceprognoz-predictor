@@ -7,6 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "bun run --filter raceprognoz-parser build && bun run --filter raceprognoz-web build"
+    "build": "bun run --filter raceprognoz-parser build && bun run --filter raceprognoz-web build",
+    "postinstall": "cd apps/raceprognoz-web && playwright install chromium"
   }
 }

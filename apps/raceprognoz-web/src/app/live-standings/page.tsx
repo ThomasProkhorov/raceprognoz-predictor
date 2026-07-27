@@ -31,7 +31,10 @@ export default async function LiveStandingsPage() {
   
   const season = await getSeason(new Date().getFullYear());  
   const seasonDetails = await getSeasonDetails(season.id);
-  const eventId = seasonDetails.schedule.find((event) => event.status === "ongoing")?.id ?? '';
+  let eventId = seasonDetails.schedule.find((event) => event.status === "ongoing")?.id ?? '';
+  if (eventId==='') {
+    eventId = seasonDetails.schedule.filter((event) => event.status === "completed")?.slice(-1)[0]?.id ?? '';
+  }
   const event = await getEventDetails(eventId);  
   if (event) eventName = event.name;
 
@@ -62,6 +65,9 @@ export default async function LiveStandingsPage() {
             position: r.position,
             driverCode: r.driver.code,
             driverName: r.driver.fullName,
+            team: null,
+            time: null,
+            points: null
           }));
         }
       } catch {}
@@ -88,6 +94,9 @@ export default async function LiveStandingsPage() {
               position: r.position,
               driverCode: r.driver.code,
               driverName: `${r.driver.firstName} ${r.driver.lastName}`,
+              team: null,
+              time: null,
+              points: null
             }));
           liveResults = results;
         } catch { console.log("--------------------------"); }

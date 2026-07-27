@@ -3,9 +3,12 @@ export const DIFF_SCORE: Record<number, number> = {
 };
 
 export interface LiveResult {
-  position: string;
-  driverCode: string;
-  driverName: string;
+  position: string | undefined;
+  driverCode: string | undefined;
+  driverName: string | undefined;  
+  team: string | null | undefined;
+  time: string | null;
+  points: string | null;
 }
 
 export interface ScoredEntry {

@@ -21,7 +21,7 @@ export default async function PredictionsPage() {
     const event = await getEventDetails(eventId);  
     if (event) {
       eventName = event.name;
-      console.log(eventName)
+      //console.log(eventName)
     }
   } catch {}
 

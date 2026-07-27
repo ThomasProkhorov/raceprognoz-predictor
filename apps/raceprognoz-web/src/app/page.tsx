@@ -14,7 +14,7 @@ export default async function Home() {
 
     const seasonDetails = await getSeasonDetails(season.id);
     const events = seasonDetails.schedule.filter((event) => event.status === "ongoing" || event.status === "completed");
-    console.log(`Last Session:\n${JSON.stringify(events ?? null, null, 2)}`);
+    //console.log(`Last Session:\n${JSON.stringify(events ?? null, null, 2)}`);
     const eventId = events[events.length - 1].id;
     //console.log(`Current Event Id: ${eventId}`);
     const eventDetails = await getEventDetails(eventId);

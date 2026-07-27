@@ -10,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { getDrivers, getLiveHtml, initLiveParser } from "@/lib/parsers/live-parser";
 
 const SESSION_LABELS: Record<string, string> = {
   race: "Race",
@@ -26,7 +27,11 @@ export default async function LivePage() {
 
   const season = await getSeason(new Date().getFullYear());  
   const seasonDetails = await getSeasonDetails(season.id);
-  const eventId = seasonDetails.schedule.find((event) => event.status === "ongoing")?.id ?? '';
+  //let eventId = '093e56b6-70b0-49ae-be1d-fe7c92b9afd8';
+  let eventId = seasonDetails.schedule.find((event) => event.status === "ongoing")?.id ?? '';
+  if (eventId==='') {
+    eventId = seasonDetails.schedule.filter((event) => event.status === "completed")?.slice(-1)[0]?.id ?? '';
+  }
   const event = await getEventDetails(eventId);  
   let results: LiveResult[] = [];
   let sessionType: string | null = null;
@@ -39,6 +44,7 @@ export default async function LivePage() {
     const completedSessions = event.schedule.filter((s) => s.status === "completed");
     const lastCompleted = completedSessions[completedSessions.length - 1] ?? null;
 
+    //const ongoingType = 'race' as const;
     const ongoingType = raceSession?.status === "ongoing"
       ? ("race" as const)
       : qualiSession?.status === "ongoing"
@@ -47,16 +53,41 @@ export default async function LivePage() {
 
     if (ongoingType) {
       try {
-        const parsed = await parseEventResults(eventId);
-        const session = parsed.sessions.find((s) => s.type === ongoingType);
-        if (session) {
-          results = session.results.map((r) => ({
+        await initLiveParser(
+          "https://ocblacktop.com/events/093e56b6-70b0-49ae-be1d-fe7c92b9afd8"
+        );
+
+        
+        //setInterval(async () => {
+          const drivers = await getDrivers();
+
+          console.log('drivers:', drivers );
+
+          results = drivers.map((r) => ({
             position: r.position,
-            driverCode: r.driver.code,
-            driverName: r.driver.fullName,
+            driverCode: r.driverCode,
+            driverName: r.driverName,
+            team: r.team,
+            time: r.time,
+            points: r.points,
           }));
-          sessionType = session.type;
-        }
+          sessionType = ongoingType;
+          // тут твой parseRscPayload или Cheerio
+          // const data = parseLive(html);
+
+        //}, 120000);
+        // const parsed = await parseEventResults(eventId);
+        // console.log('Parsed EventId:', eventId);
+        // console.log('Parsed Event Results:', parsed);
+        // const session = parsed.sessions.find((s) => s.type === ongoingType);
+        // if (session) {
+        //   results = session.results.map((r) => ({
+        //     position: r.position,
+        //     driverCode: r.driver.code,
+        //     driverName: r.driver.fullName,
+        //   }));
+        //   sessionType = session.type;
+        // }
       } catch (e) {
         resultsError = e instanceof Error ? e.message : "Failed to fetch results";
       }
@@ -76,6 +107,9 @@ export default async function LivePage() {
             position: r.position,
             driverCode: r.driver.code,
             driverName: `${r.driver.firstName} ${r.driver.lastName}`,
+            team: null,
+            time: null,
+            points: null
           }));
         sessionType = lastCompleted.type;
       } catch (e) {
